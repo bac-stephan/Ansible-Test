@@ -1,0 +1,13 @@
+# Temporäre Ansible-Dateien
+*.retry
+*.log
+.ansible/
+
+# Python-Cache
+__pycache__/
+*.pyc
+
+# Sensible Daten (falls du Schlüssel oder Vault-Passwörter nutzt)
+*.pem
+*.key
+vault_pass.txt

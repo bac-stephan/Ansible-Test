@@ -1,0 +1,28 @@
+---
+- name: Komplettes System-Update auf dem ThinkPad
+  hosts: notebooks
+  become: true
+
+  tasks:
+    - name: Fedora DNF-Pakete aktualisieren
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+        update_cache: true
+
+    - name: Systemweite Flatpak-Pakete aktualisieren
+      ansible.builtin.command: flatpak update -y --system
+      changed_when: false
+
+    - name: User Flatpak-Pakete aktualisieren
+      ansible.builtin.command: flatpak update -y --user
+      become: false
+      changed_when: false
+
+    - name: Veraltete User Python-Pakete (pip) aktualisieren
+      ansible.builtin.shell: >
+        pip list --outdated --format=json | 
+        python3 -c "import sys, json; print(' '.join([pkg['name'] for pkg in json.load(sys.stdin)]))" | 
+        xargs -r pip install --upgrade --user
+      changed_when: false
+      failed_when: false
