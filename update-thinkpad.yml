@@ -7,7 +7,7 @@
     - name: Fedora DNF-Pakete aktualisieren
       ansible.builtin.dnf:
         name: "*"
-        state: latest
+        state: latest # noqa: package-latest
         update_cache: true
 
     - name: Systemweite Flatpak-Pakete aktualisieren
@@ -18,4 +18,3 @@
       ansible.builtin.command: flatpak update -y --user
       become: false
       changed_when: false
-
