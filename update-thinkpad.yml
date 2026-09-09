@@ -18,3 +18,8 @@
       ansible.builtin.command: flatpak update -y --user
       become: false
       changed_when: false
+
+    - name: ThinkPad neu starten
+      ansible.builtin.reboot:
+        msg: "Neustart durch Ansible-Update"
+        reboot_timeout: 600
