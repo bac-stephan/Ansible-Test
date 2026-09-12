@@ -2,6 +2,10 @@
 
 Automatisierte Systemaktualisierung für ein Lenovo ThinkPad (Fedora) gesteuert von einem DELL OptiPlex Control Node.
 
+## Demo
+
+[![asciicast](https://asciinema.org/a/1265250.svg)](https://asciinema.org/a/1265250)
+
 ## Projektstruktur
 
 * update-thinkpad.yml: Playbook zur Aktualisierung von DNF-Paketen sowie systemweiten und User-Flatpaks.

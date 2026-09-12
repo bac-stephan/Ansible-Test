@@ -11,3 +11,9 @@ __pycache__/
 *.pem
 *.key
 vault_pass.txt
+
+# Asciinema Casts, GIFs und Hilfsskripte
+*.cast
+demo.gif
+trim_cast.py
+convert.py

@@ -67,3 +67,91 @@ git remote -v
 
 ## 21. Repository auch direkt über das Terminal im Browser öffnen.
 gh repo view --web
+
+## 22. `:r !tail -n 50 ~/.bash_history`
+
+cd Dokumente/
+Gitlab/
+cd Gitlab/
+ls -rtlh
+glab snippet list
+tldr glab
+cd
+cd Dokumente/
+cd Podman/
+ls -rtlh
+mkdir 2026-09-11
+cd 2026-09-11/
+whoami
+id
+podman run -d --name web -p 8080:80 nginx
+history | grep login
+podman login registry.docker.io
+podman login docker.io
+podman run -d --name web -p 8080:80 nginx
+podman logout docker.io
+podman login -u stephanbac docker.io
+podman run -d --name web -p 8080:80 nginx
+podman ps
+curl http://127.0.0.1:8080
+podman exec web id
+podman info --format 
+podman info --format json 
+podman info --format '{{.Host.Security.Rootless}}'
+podman ps
+podman ps -a
+systemd-cgls /user.slice
+id
+ podman top web user huser pip hpid 
+tldr  podman top web user huser pip hpid 
+podman top web user huser pip 
+sudo podman top web user huser pip hpid 
+podman ps
+podman top
+podman top web
+podman logs -f web
+podman exec -it web bash
+podman stop web
+podman rm web
+podman ps
+cat /proc/self/loginuid 
+cd
+history |grep sudo
+sudo dnf upgrade --refresh && flatpak update
+reboot
+
+## 23. python3 trim_cast.py
+
+## 24. asciinema upload ansible-demo.cast
+
+## 25. asciinema auth
+
+## 26. [![asciicast](https://asciinema.org/a/123456.svg)](https://asciinema.org/a/123456)
+
+## 27. head -n 1 ansible-demo.cast
+
+## 28. python3 -c 'import json; lines = open("ansible-demo.cast").readlines(); h = json.loads(lines[0]); h["version"] = int(h["version"]); lines[0] = json.dumps(h) + "\n"; open("ansible-demo.cast", "w").writelines(lines)'
+
+## 29. asciinema upload ansible-demo.cast
+
+## 30. python3 convert.py
+
+## 31. head -n 1 ansible-demo.cast
+
+## 32. asciinema upload ansible-demo.cast
+
+## 33. [![asciicast](https://asciinema.org/a/<DEINE_CAST_ID>.svg)](https://asciinema.org/a/<DEINE_CAST_ID>)
+
+## 34. [![asciicast](https://asciinema.org/a/<DEINE_CAST_ID>.svg?theme=solarized-dark&speed=1.5)](https://asciinema.org/a/<DEINE_CAST_ID>)
+
+## 35. asciinema upload ansible-demo.cast
+
+## 36. podman run --rm -v "$(pwd)":/data ghcr.io/asciinema/agg --theme solarized-dark --speed 1.2 /data/ansible-demo.cast /data/demo.gif
+
+## 37. ![Ansible Control Node Demo](demo.gif)
+
+## 38. [![Ansible Control Node Demo](demo.gif)](https://asciinema.org/a/<DEINE_CAST_ID>)
+
+## 39. podman run --rm -v "$(pwd)":/data:z ghcr.io/asciinema/agg --theme solarized-dark --speed 1.2 /data/ansible-demo.cast /data/demo.gif
+
+## 40. ls -lh demo.gif
