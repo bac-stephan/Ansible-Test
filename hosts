@@ -1,2 +1,10 @@
+[local]
+optiplex ansible_connection=local ansible_python_interpreter=/usr/bin/python3
+
 [notebooks]
-thinkpad ansible_python_interpreter=/usr/bin/python3
+thinkpad ansible_host=192.168.178.22 ansible_python_interpreter=/usr/bin/python3
+dell_laptop ansible_host=192.168.178.21 ansible_python_interpreter=/usr/bin/python3
+
+[all_nodes:children]
+local
+notebooks
