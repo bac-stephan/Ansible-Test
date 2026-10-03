@@ -17,3 +17,8 @@ vault_pass.txt
 demo.gif
 trim_cast.py
 convert.py
+casts/
+gifs/
+code-py/
+*.py
+*.gif
