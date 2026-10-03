@@ -1,6 +1,6 @@
 ---
-- name: Komplettes System-Update auf dem ThinkPad
-  hosts: notebooks
+- name: Komplettes System-Update auf allen Fedora-Nodes
+  hosts: all_nodes
   become: true
 
   tasks:
@@ -19,7 +19,8 @@
       become: false
       changed_when: false
 
-    - name: ThinkPad neu starten
+    - name: Notebooks neu starten
       ansible.builtin.reboot:
         msg: "Neustart durch Ansible-Update"
         reboot_timeout: 600
+      when: inventory_hostname != 'optiplex'
