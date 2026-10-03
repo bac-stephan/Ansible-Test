@@ -1,6 +1,6 @@
 # Fedora ThinkPad Update via Ansible
 
-Automatisierte Systemaktualisierung für ein Lenovo ThinkPad (Fedora) gesteuert von einem DELL OptiPlex Control Node.
+Automatisierte Systemaktualisierung (DNF-Pakete und Flatpaks) für mehrere Fedora Workstation Nodes (`optiplex`, `thinkpad`, `dell_laptop`), gesteuert von einem zentralen DELL OptiPlex Control Node.
 
 ## Demo
 
@@ -8,10 +8,13 @@ Automatisierte Systemaktualisierung für ein Lenovo ThinkPad (Fedora) gesteuert 
 
 ## Projektstruktur
 
-* update-thinkpad.yml: Playbook zur Aktualisierung von DNF-Paketen sowie systemweiten und User-Flatpaks.
-* hosts: Inventory-Datei mit der Zuordnung des Managed Nodes (thinkpad).
-* ansible.cfg: Lokale Ansible-Konfiguration für automatisches Inventory-Loading.
-* commands.md: Dokumentation der wichtigsten Terminal-Befehle und Workflows.
+* `update-all.yml`: Playbook zur zentralen Aktualisierung aller Fedora-Nodes (DNF, Systemwide & User-Flatpaks, bedingter Reboot).
+* `hosts`: Inventory-Datei mit strukturierter Gruppenzuordnung (`all_nodes`, `notebooks`, `local`).
+* `ansible.cfg`: Lokale Ansible-Konfiguration für automatisches Inventory-Loading.
+* `projekt_dokumentation.md`: Ausführliche Projektdokumentation und Lernschritte.
+* `commands/`: Dokumentation der Terminal-Befehle und Workflows (`01-commands.md`, `02-commands.md`).
+* `code-py/`: Python-Hilfsskripte zur Bearbeitung und Konvertierung von Terminalaufnahmen (`convert.py`, `trim_cast.py`).
+* `casts/` & `gifs/`: Terminal-Aufzeichnungen und Demos des automatisierten Update-Prozesses.
 
 ## Voraussetzungen
 
@@ -20,10 +23,13 @@ Automatisierte Systemaktualisierung für ein Lenovo ThinkPad (Fedora) gesteuert 
 
 ## Schnellstart
 
-1. Verbindung testen:
+1. Playbook auf Linter-Konformität prüfen:
+   ansible-lint update-all.yml
+
+2. Verbindung testen:
    ansible notebooks -m ping
 
-2. Update-Playbook ausführen:
+3. Update-Playbook ausführen:
    ansible-playbook update-thinkpad.yml -K
 
 > Hinweis: Bei LUKS-verschlüsselten Systemen muss das Gerät nach einem Neustart erst physisch entschlüsselt werden, bevor der SSH-Dienst erreichbar ist.
